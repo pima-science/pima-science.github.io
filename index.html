@@ -25,7 +25,7 @@
     
 </head>
     
-<img src="sample.gif" name="gif_output">
+<img src="20210120_test2.gif" name="gif_output">
     <p> 認識した文章の文字数 </p>
     <p id="result_length"> </p>
 <body>
@@ -282,7 +282,7 @@
 <script src="adapter.js"></script>
     
 <script>
-    img = new Array("20200115_test.gif","sample.gif","koushi2.gif"); //*1
+    img = new Array("20210120_test.gif","20210120_test2.gif"); //*1
     count = -1; //*2
     
     // ブラウザ判定
@@ -443,17 +443,14 @@
     var textUpdateTimeoutSecond = 30; // 音声認識結果が更新されない場合にクリアするまでの秒数（0以下の場合は自動クリアしない）
     
     
-    function imgTimer() {
-        //画像番号
-        count++; //*3
-        //countが画像の枚数を超えたらゼロに戻す
-        if (count == img.length) count = 0; //*4
+    function img_hello() {
         //画像出力
-        document.gif_output.src = img[count]; //*5
-        //次のタイマー呼びだし
-      //  setTimeout("imgTimer()",1000); //*6
+        document.gif_output.src = img[0]; //*5
     }
-    
+    function img_normal() {
+        //画像出力
+        document.gif_output.src = img[1]; //*5
+    }
     
     function vr_function() {
         window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
@@ -501,8 +498,10 @@
                     
                     document.getElementById("result_length").innerHTML = result_transcript.length;
                     //練習　文字数が長かったらGif画像を変更する
-                    if (result_transcript.length > 10){
-                        imgTimer()
+                    if (result_transcript.length > 8){
+                        img_hello()
+                    }else{
+                        img_normal()
                     }
                         
                     
