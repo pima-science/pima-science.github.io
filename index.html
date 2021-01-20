@@ -498,7 +498,7 @@
                     
                     document.getElementById("result_length").innerHTML = result_transcript.length;
                     //練習　文字数が長かったらGif画像を変更する
-                    if (result_transcript.length > 8){
+                    if (result_transcript.length < 8){
                         img_hello()
                     }else{
                         img_normal()
