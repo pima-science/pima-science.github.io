@@ -443,15 +443,16 @@
     var textUpdateTimeoutSecond = 30; // 音声認識結果が更新されない場合にクリアするまでの秒数（0以下の場合は自動クリアしない）
     
     ////////
+    function img_normal() {
+        //画像出力
+        document.gif_output.src = img[1]; //*5
+    }    
     function img_hello() {
         //画像出力
         document.gif_output.src = img[0]; //*5
         setTimeout("img_normal()",1000*3)
     }
-    function img_normal() {
-        //画像出力
-        document.gif_output.src = img[1]; //*5
-    }
+
     /////////
     function vr_function() {
         window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
